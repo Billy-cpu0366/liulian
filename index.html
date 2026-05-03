@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durian Insight Pro | Market Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="#/home" class="brand">
+                <svg class="brand-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2.5L28 9.5V22.5L16 29.5L4 22.5V9.5L16 2.5Z" stroke="var(--c-durian-green)" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M13 10.5V21.5C18 21.5 21.5 18 21.5 16C21.5 14 18 10.5 13 10.5Z" fill="var(--c-durian-gold)"/>
+                    <path d="M13 10.5V21.5" stroke="var(--c-bg)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="brand-text">
+                    <span class="brand-name">DURIAN</span>
+                    <span class="brand-badge">PRO</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <a href="#/home" class="nav-item active" data-route="home">市场概览</a>
+                <a href="#/market" class="nav-item" data-route="market">大盘分析</a>
+                <a href="#/compare" class="nav-item" data-route="compare">竞品对比</a>
+                <a href="#/pricing" class="nav-item" data-route="pricing">价格监测</a>
+                <a href="#/insights" class="nav-item" data-route="insights">用户洞察</a>
+                <a href="#/channels" class="nav-item" data-route="channels">渠道拆解</a>
+                <a href="#/reports" class="nav-item" data-route="reports">报告中心</a>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <i data-feather="search" class="icon-sm"></i>
+                <input type="text" placeholder="搜索品牌、品类、渠道...">
+            </div>
+            <div class="user-actions">
+                <button class="icon-btn"><i data-feather="bell"></i></button>
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="avatar-sm">
+            </div>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <aside id="sidebar-root" class="sidebar"></aside>
+        <main id="app-root" class="main-content fade-in"></main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
