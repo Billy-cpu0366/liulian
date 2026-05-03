@@ -524,10 +524,47 @@ const ChartManager = {
 
 const App = {
     init() {
+        this.bindMobileShell();
         this.renderSidebar();
         this.handleRoute();
         window.addEventListener('hashchange', () => this.handleRoute());
-        window.addEventListener('resize', () => ChartManager.resize());
+        window.addEventListener('resize', () => {
+            ChartManager.resize();
+            if (window.innerWidth > 1024) this.closeMobilePanels();
+        });
+    },
+    bindMobileShell() {
+        const navToggle = document.getElementById('mobileNavToggle');
+        const sidebarToggle = document.getElementById('mobileSidebarToggle');
+        const overlay = document.getElementById('mobileOverlay');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = document.body.classList.contains('mobile-nav-open');
+                document.body.classList.toggle('mobile-nav-open', !isOpen);
+                document.body.classList.remove('mobile-sidebar-open');
+            });
+        }
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                const isOpen = document.body.classList.contains('mobile-sidebar-open');
+                document.body.classList.toggle('mobile-sidebar-open', !isOpen);
+                document.body.classList.remove('mobile-nav-open');
+            });
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', () => this.closeMobilePanels());
+        }
+
+        document.querySelectorAll('.main-nav .nav-item').forEach((item) => {
+            item.addEventListener('click', () => this.closeMobilePanels());
+        });
+    },
+    closeMobilePanels() {
+        document.body.classList.remove('mobile-nav-open');
+        document.body.classList.remove('mobile-sidebar-open');
     },
     renderSidebar() {
         const sidebar = document.getElementById('sidebar-root');
@@ -613,6 +650,7 @@ const App = {
         }
 
         feather.replace();
+        this.closeMobilePanels();
         setTimeout(() => ChartManager.initCharts(), 0);
     }
 };

@@ -14,6 +14,9 @@
 <body>
     <header class="top-nav">
         <div class="nav-left">
+            <button id="mobileNavToggle" class="mobile-icon-btn" type="button" aria-label="Toggle navigation">
+                <i data-feather="menu"></i>
+            </button>
             <a href="#/home" class="brand">
                 <svg class="brand-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 2.5L28 9.5V22.5L16 29.5L4 22.5V9.5L16 2.5Z" stroke="var(--c-durian-green)" stroke-width="2" stroke-linejoin="round"/>
@@ -44,8 +47,13 @@
                 <button class="icon-btn"><i data-feather="bell"></i></button>
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="avatar-sm">
             </div>
+            <button id="mobileSidebarToggle" class="mobile-icon-btn" type="button" aria-label="Toggle filters">
+                <i data-feather="sliders"></i>
+            </button>
         </div>
     </header>
+
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true"></div>
 
     <div class="layout-wrapper">
         <aside id="sidebar-root" class="sidebar"></aside>
